@@ -1,0 +1,80 @@
+#con
+{
+    padding-top: 20px;
+    margin-top: 40px;
+    background-color: #283618;
+    padding-bottom: 100px;
+    padding: 50px;
+    box-shadow: 0px 0px 10px 8px black;
+}
+
+
+#con h1
+{
+    font-size: 40px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: 800;
+    margin-bottom: 30px;
+    color: white;
+    
+}
+
+#card1
+{
+   
+background:white;
+padding: 40px;
+border: none;
+border-radius: 0px;
+&:hover{
+    scale: 1.1;
+}
+}
+
+
+#ModalLabel
+{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: 800;
+    margin-left: 30px;
+    color: white;
+}
+
+#btn-close
+{
+    font-size: 20px;
+   background-color: white;
+    
+    margin-bottom: 25px;
+}
+
+#modal-dialog
+{
+    background-color: #283618;
+}
+
+label
+{
+    color: white;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+#update
+{
+    background-color: #FFB703;
+    color: black;
+    font-size: 16px;
+    font-weight: 600;
+   
+}
+
+footer
+{
+  margin-top: 120px;
+  bottom: 0;
+  background-color: #283618;
+  color: white;
+  padding-top: 50px;
+  padding-bottom: 10px;
+}

@@ -1,0 +1,431 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="style/index.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+   <script>
+    $(document).ready(function(){ 
+      $("#txtMail").click(function(){
+          let email13=$(this).val();
+          let pwd12=$("#txtpass").val();
+          let utype12=$("#selectbox").val();
+          //alert(email13);
+          let obj={
+              type:"get",
+              url:"/check-user",
+              data:{
+                  txtMail:email13,
+                  txtpass:pwd12,
+              }
+          }
+          //fire AJAX request
+          $.ajax(obj).done(function(response){
+          }).fail(function(err){
+             alert(JSON.stringify(err));
+          })
+     });
+
+     //=========================//
+          
+      $("#loginbtn").click(function(){
+          let email1=$("#txtMail-l").val();
+          let pwd1=$("#txtpass-l").val();
+         // alert(email1);
+          let obj={
+              type:"get",
+              url:"/check-user-login",
+              data:{
+                  txtMaillogin:email1,
+                  txtpasslogin:pwd1,
+              }
+          }
+          //fire AJAX request
+          $.ajax(obj).done(function(response){
+            if(response=="Organization")
+            {
+              location.href="DashboardOg.html";
+              localStorage.setItem("activeUser",email1);
+            }
+            else if(response=="Player")
+            {
+               location.href="profile.html";
+               localStorage.setItem("activeUser",email1);
+            }
+            else
+            {
+              alert("Invalid User");
+            }
+          }).fail(function(err){
+              
+              alert(JSON.stringify(err));
+          })
+      });
+
+////////////////Validation Of Signup /////////////////////
+
+        $("#txtMail").keyup(function(){
+                let email=$("#txtMail").val();
+                let eexp=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                let res=eexp.test(email);
+                if(res==true)
+                  {
+                    $("#message").html("Its Valid");
+                    $("#message").addClass("ok").removeClass("not-ok");
+                  } 
+                else
+                    $("#message").html("Invalid Email ID").addClass("not-ok").removeClass("ok");
+        })
+
+////////////////Validation Of login /////////////////////
+ 
+$("#txtMail-l").keyup(function(){
+                let email=$("#txtMail-l").val();
+                let eexp=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                let res=eexp.test(email);
+                if(res==true)
+                  {
+                    $("#res").html("Its Valid");
+                    $("#res").addClass("ok-l").removeClass("not-ok-l");
+                  } 
+                else
+                    $("#res").html("Invalid Email ID").addClass("not-ok-l").removeClass("ok-l");
+        })
+  });
+  </script>
+</head>
+<body>
+<!-- Navbar -->
+<div class="container-fluid " id="banner">
+  <nav class="navbar navbar-expand-lg" id="navabar">
+          <a href="#" class="navbar-brand">
+              <img src="pics/goa stadium.jfif"  height="52" alt="CoolBrand"><span  style="margin-left: 20px;  font-weight: 900; font-family: Georgia, 'Times New Roman', Times, serif; font-size: 30px;">Org ,Layers</span>
+          </a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+              <div class="navbar-nav n">
+                  <a href="#banner" class="nav-item nav-link active">Home</a>
+                  <a href="#head" class="nav-item nav-link">services</a>
+                  <a href="#about" class="nav-item nav-link">About</a>
+                  <a href="#contact" class="nav-item nav-link">Reach</a>
+                  <a href="#reach" class="nav-item nav-link">Contact</a>
+              </div>
+              <div class="navbar-nav ms-auto">
+                <button type="button"  class=" m-1 btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                  Signup
+                </button>
+                <button type="button" class="m-1 btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#loginmodal">
+                  Login
+                </button>
+              </div>
+          </div>
+      </div>
+  </nav>
+</div>
+<!-- Navbar -->
+
+<!-- Crousel -->
+<div id="carouselExampleFade" class="carousel slide carousel-fade">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="pics/soccer-game-concept.jpg" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="pics/5205447.jpg" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="pics/graphic-designers-interacting-their-desk.jpg" class="d-block w-100" alt="...">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+<!-- ---- -->
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header" id="bfr">
+        <h1  id="exampleModalLabel">Signup Here</h1>
+        <button type="button" class="btn-close" id="btnc" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form action="/signup-process-secure" method="post">
+      <div class="modal-body">
+             <label >Email Id</label><br>
+             <input type="email" class="box form-control" placeholder="Enter Your Email" id="txtMail" name="txtMail"><span class="err" id="message"></span><br>
+             <label >Password</label><br>
+             <input type="password" class="box form-control" name="txtpass"  id="txtpass"  placeholder="**************"><span class="err" id="mess"></span><br>
+             <label class="form-label" >User Type</label><br>
+             <select class="box form-control" name="selectbox" id="selectbox">
+              <option value="">Select</option>
+              <option value="Player">Player</option>
+              <option value="Organization">Organization</option>
+             </select>
+      </div>
+      <div class="modal-footer" id="foot">
+        <button type="submit" id="btnsend" value="Signup" >Signup</button>
+      </div>
+    </form>
+    </div>
+  </div>
+</div>
+
+<!-- Login Modal -->
+
+<form action="/login-process-secure" method="post"> 
+  <!-- Modal -->
+  <div class="modal fade" id="loginmodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header" id="mainheader" >
+          <h1 class="modal-title" id="loginheader">Login Here</h1>
+          <button type="button" class="btn-close" id="btnc" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" id="bf">
+            <label class="lab form-label" >Email Id</label><br>
+            <input type="email" class="box form-control" placeholder="Enter Your Email" name="txtMail" id="txtMail-l"><span id="res" class="err">*</span><br>
+            <label class="lab form-label" >Password</label><br>
+            <input type="password" class="box form-control" name="txtpass" placeholder="**************" id="txtpass-l"><br>
+        </div>
+        <div class="modal-footer" id="loginfoot">
+          <button type="button" id="loginbtn" >Login</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+
+<!-- Services -->
+
+<div class="container-grid row p-5 gap" id="head">
+  <center><h2>Our Services</h2></center>
+  <div class="card col-md-3">
+    <img src="pics/stumpad.png" class="p-3" alt="..." height="180" >
+    <div class="card-body">
+      <h5 class="card-title">Publish Tornaments</h5>
+      <p class="card-text">Publishing tournaments is an essential part of the competitive gaming ecosystem.</p>
+    </div>
+  </div>
+
+  <div class="card  col-md-3">
+    <img src="pics/players.jpg" class="p-3" alt="..." height="180">
+    <div class="card-body">
+      <h5 class="card-title">Upcoming Tournaments</h5>
+      <p class="card-text"> The upcoming tournament is set to bring fierce competition and exciting gameplay.</p>
+    </div>
+  </div>
+
+  <div class="card  col-md-3" >
+    <img src="pics/trophy.png" class="p-3" alt="..." height="180">
+    <div class="card-body">
+      <h5 class="card-title">Win Prizes</h5>
+      <p class="card-text">Compete for a chance to win amazing prizes and showcase your skills at the top level!</p>
+    </div>
+  </div>
+
+  <div class="card col-md-3" >
+    <img src="pics/cerficate.png"  class="p-3" alt="..." height="180" > 
+    <div class="card-body">
+      <h5 class="card-title">Certification</h5>
+      <p class="card-text">Earn a prestigious certification to recognize your achievements and skills in the tournament!
+      </p>
+    </div>
+  </div>
+</div>
+<!--==============================================-->
+
+<!-- About US -->
+
+<div class="container-grid p-5" id="about">
+  <center><h2>About Us</h2></center>
+     <div class="row">
+      <div class="card mb-3  col-md-6">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img src="pics/sir.jpg" class="img-fluid rounded-start" alt="..." style="padding-top: 10px;">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">Under The Guidance</h5>
+              <h6 class="card-text ">24 Years Experience Of Programming Trainng. </h6>
+              <h6 class="card-text ">Founder Of Banglore Computer Education.</h6>
+              <h6 class="card-text ">Author Of Book (Real Java).</h6>
+              <h6 class="card-text ">SCJP (Sun Certified Java Programmer).</h6>
+              <h6 class="card-text ">MCS (Microsoft Certified Specialist).</h6>
+              <h6 class="card-text ">Developer Of <a href="https://www.realjavaonline.com/">www.RealJavaOnline.com</a></h6>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card mb-3  col-md-6">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img src="pics/WhatsApp Image 2024-11-25 at 3.46.22 PM.jpeg" class=" rounded-start" alt="..." height="210" width="200" style="padding-top: 10px;">
+          </div>
+
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">Developed by Abhijeet Singh</h5>
+              <h6 class="card-title">Review About Training</h6>
+              <span>The training at Bangalore Computer Education (BCE) offers
+                 a comprehensive curriculum covering programming fundamentals,
+                 architecture, API development, database integration, asynchronous
+                 programming, error handling, security best practices, and unit testing.
+                </span>
+            </div>
+          </div>
+        </div>
+      </div>
+     </div>
+</div>
+<!--===========-============================================-->
+
+<div class="container-grid p-5 gap-2" id="contact">
+  <center><h2>Contact Us</h2></center>
+  <div class="row">
+    <div class="col-md-6" id="formm">
+      <center><h2 >Mail Your Query </h2></center>
+      <form class="row g-3" method="post">
+        <div class="col-md-6">
+          <label for="inputEmail4" class="form-label">Email</label>
+          <input type="email" name="feedname" class="form-control" id="inputEmail4">
+        </div>
+        <div class="col-md-6">
+          <label for="contact" class="form-label">Contact</label>
+          <input type="text" class="form-control" name="contact" id="contact">
+        </div>
+        <div class="col-12">
+          <label for="inputAddress" class="form-label">Address</label>
+          <input type="text" class="form-control" name="address" id="inputAddress" placeholder="1234 Main St">
+        </div>
+        <div class="col-12">
+          <label for="floatingTextarea">Message</label>
+          <textarea class="form-control" name="feedback" rows="3" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
+        </div>
+        <div class="col-12 p-2">
+          <button type="submit" formaction="/SendFeedback">Send Your Query</button>
+        </div>
+      </form>
+    </div>
+    <div class="col-md-6">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3447.9042915818472!2d74.94990567556015!3d30.21127897483997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391732a4f880032d%3A0x89c6142e92cd8fc1!2sReal%20Java%20Book%20Head%20Office!5e0!3m2!1sen!2sin!4v1732516382674!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="p-2"></iframe>
+       <div>
+         <h3 class="text-center p-3">Follow On Social Links</h3>
+         <center> 
+        <p>
+         <a href=""><i class="fa-brands fa-linkedin icons"></i></a>
+         <i class="fa-brands fa-square-facebook icons"></i>
+          <a href="https://www.instagram.com/abhijeetsingh_bhullar?utm_source=qr&igsh=dDg1MWVwMzJ0d2tl"><i class="fa-brands fa-instagram icons"></i></a>
+          <i class="fa-brands fa-telegram icons"></i>
+         </p>
+        </center>
+       </div>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+
+<footer class="container-grid p-5" id="reach">
+  <section>
+      <div class="row mt-3">
+        <div class="col-md-3">
+          <h6 class="text-uppercasemb-4">
+            <i class="fas fa-gem"></i>Global Vision
+          </h6>
+          <p>
+            Global vision for both the individual player and the organization encompasses
+            a broad and inclusive approach to growth, participation, and global engagement.
+            It focuses on both personal excellence and collective progress, while also
+            addressing larger-scale goals such as accessibility, sustainability, and international.
+          </p>
+        </div>
+        <!-- Grid column -->
+  <div class="col-md-2">
+
+  </div>
+        <!-- Grid column -->
+        <div class="col-md-2">
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold ">
+            Menu
+          </h6>
+          <p>
+            <a href="#banner" class="text-reset">Home</a>
+          </p>
+          <p>
+            <a href="#head" class="text-reset">Services</a>
+          </p>
+          <p>
+            <a href="#about" class="text-reset">About</a>
+          </p>
+          <p>
+            <a href="#contact" class="text-reset">Reach</a>
+          </p>
+          <p>
+            <a href="#reach" class="text-reset">Contact</a>
+          </p>
+        </div>
+
+        <div class="col-md-2">
+          <!-- Links -->
+          <p class="text-uppercase fw-bold ">
+            Services
+          </p>
+          <p>
+               Find Tournaments
+          </p>
+          <p>
+              Organization
+          </p>
+          <p>
+            Players
+          </p>
+          <p>
+            Help
+          </p>
+          <p>
+            404
+          </p>
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-3">
+          <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
+          <p><i class="fas fa-home me-3"></i>Punjab, Bathinda , Ajit Road.</p>
+          <p>
+            <a href="mailto: 19198ak@gmail.com" style="color: white;"><i class="fas fa-envelope me-3"></i>
+            19198ak@gmail.com</a>
+          </p>
+          <p><a href="tel:8837706400" style="color: white;"><i class="fas fa-phone me-3"></i> + 91 883 770 6400</a></p>
+          <p><i class="fas fa-print me-3"></i> + 01 234 567 89</p>
+        </div>
+      </div>
+  </section>
+  <!-- Copyright -->
+  <div class="text-center" style="background-color: rgba(0, 0, 0, 0.05);">
+    © 2021 Copyright:
+    <a class="text-reset fw-bold" href="#">Ak Developers</a>
+  </div>
+  <!-- Copyright -->
+</footer>
+<!-- ---- -->
+
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  </body>
+</html>

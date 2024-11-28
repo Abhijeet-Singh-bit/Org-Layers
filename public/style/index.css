@@ -1,0 +1,227 @@
+
+#navabar
+{
+  top:0;
+}
+
+
+#exampleModalLabel
+{
+    margin-left: 120px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+
+
+#bfr
+{
+    background-color:#283618;
+    color: white;
+}
+
+label
+{
+    margin-bottom: 10px;
+    margin-top: 10px;
+    color: #283618;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.box
+{
+    border-radius: 5px 5px 5px 5px;
+}
+
+#foot
+{
+    background-color: #283618;
+}
+
+#btnsend
+{
+    background-color: white;
+    border-radius: 5px 5px 5px 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+
+#bf,#mainheader,#loginfoot
+{
+    background-color: #283618;
+}
+
+#loginheader
+{
+    color: white;
+    margin-left: 120px;
+    font-size:40px;
+    font-weight: 500;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.lab{
+    color: white;
+}
+
+#loginbtn
+{
+    background-color: white;
+    border-radius: 5px 5px 5px 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+
+#lgbtn1
+{
+    background-color: white;
+    border-radius: 5px 5px 5px 5px;
+    &:hover{
+        color: #023047;
+    }
+}
+
+#btnc
+{
+    margin-right: 5px;
+    margin-bottom: 20px;
+    font-size: 15px;
+    background-color: white;
+}
+
+.cont
+{
+  background-color: white;
+    height: 600px;
+    display: flex;
+}
+
+
+
+footer
+{
+  bottom: 0;
+  background-color: #283618;
+  color: white;
+  padding-top: 50px;
+  padding-bottom: 10px;
+}
+
+#head h2
+{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 35px;
+    font-weight: 800;
+    padding: 20px;
+}
+
+#image
+{
+    padding-top: 40px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    /* filter: drop-shadow(0px 0px 10px #283618); */
+}
+
+.txt
+{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: 800;
+}
+
+#formm
+{
+    background-image: linear-gradient(to bottom right,#606c38,#283618);
+    padding: 50px;
+    color: white;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    border-radius: 5px 5px 5px 5px;
+}
+
+#formm label
+{
+    color: white;
+}
+
+button
+{
+    color: black;
+    font-weight: 500;
+    background-color: white;
+    padding-top:6px;
+    padding-bottom: 6px;
+    padding-left: 30px;
+    padding-right: 30px;
+    transition: ease all 1s;
+}
+
+button:hover
+{
+
+scale: 0.9;
+transition: ease all 1s;
+}
+
+#contact h2
+{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 35px;
+    font-weight: 800;
+    padding: 20px;
+}
+
+#contact h3
+{
+    font-weight: 600;
+}
+
+.icons
+{
+    background-color: #283618;
+    font-size: 30px;
+    color: white;
+    padding: 10px;
+    border-radius: 5px 5px 5px 5px;
+} 
+
+.icons:hover
+{
+    scale: 0.9;
+    cursor: pointer;
+    background-color: #fff;
+    color: black;
+    transition: ease all 1s;
+}
+
+
+.err{
+    text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.ok{
+    color: green;
+}
+.not-ok{
+    color:red;
+}
+
+.ok-l{
+    color: white;
+}
+.not-ok-l{
+    color: yellow;
+}
+
+
