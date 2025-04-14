@@ -115,6 +115,12 @@ app.get("/check-user-login",function(req,resp)
         if(jsonArray.length==1)
         {
             resp.send(jsonArray[0]["utype"]);
+             var message = "<p> Your Are Login with this </p> "+email;
+           // Send email
+           transporter.sendMail({
+              to:email,
+              html: message
+            })
             // console.log(jsonArray[0]["status"]);
 
             // console.log("user Exist");
