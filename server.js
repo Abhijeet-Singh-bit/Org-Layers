@@ -115,11 +115,11 @@ app.get("/check-user-login",function(req,resp)
         if(jsonArray.length==1)
         {
             resp.send(jsonArray[0]["utype"]);
-             var message = "<p> Your Are Login with this </p> "+email;
+               var message = "<h2> You are Login With  </h2>"+email;
            // Send email
            transporter.sendMail({
               to:email,
-              html: message
+              html: message,
             })
             // console.log(jsonArray[0]["status"]);
 
